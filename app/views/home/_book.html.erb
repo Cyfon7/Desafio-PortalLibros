@@ -5,6 +5,7 @@
     <td><%= book.stock %></td>
     <td><%= book.price %></td>
     <td><%= link_to 'Show', book, remote: true %></td>
-    <td><%= link_to 'Edit', edit_book_path(book), remote: true %></td>
-    <td><%= link_to 'Destroy', book, data: { remote: true, confirm: "Are you sure?" }, method: :delete %></td>
+    <% if user_signed_in? %>
+        <td><%= link_to 'Reserve', reserved_path(book_id: book.id, price: book.price), method: :post, remote: true %></td>
+    <% end %>
 </tr>

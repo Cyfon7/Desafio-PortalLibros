@@ -1,0 +1,10 @@
+book_table = document.getElementById('leUserBooks');
+while (book_table.firstChild) {
+    book_table.removeChild(book_table.firstChild);
+}
+
+<% unless @reservations.nil? %>
+    <% @reservations.each do |reserved| %>
+        book_table.insertAdjacentHTML("beforeend","<%= escape_javascript render "home/user_books", reservation: reserved %>")
+    <% end %>
+<% end %>

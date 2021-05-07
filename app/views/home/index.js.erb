@@ -1,0 +1,10 @@
+book_table = document.getElementById('leUserBooks');
+while (book_table.firstChild) {
+    book_table.removeChild(book_table.firstChild);
+}
+
+<% unless @books.nil? %>
+    <% @books.each do |book| %>
+        book_table.insertAdjacentHTML("beforeend","<%= escape_javascript render partial: "home/book", book: book %>")
+    <% end %>
+<% end %>
