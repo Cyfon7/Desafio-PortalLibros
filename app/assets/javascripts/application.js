@@ -14,6 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery/dist/jquery
+//= require popper
+//= require bootstrap 
 //= require_tree .
 
 function removeAllChildNodes(parent){

@@ -10,7 +10,6 @@ class HomeController < ApplicationController
         @book = Book.find(params[:id])
     end
 
-
     #User Reservation Methods
     #Show books reservates by the user
     def user_books
@@ -41,16 +40,18 @@ class HomeController < ApplicationController
     end
 
     #Payment Methods
+    #Show payments not erased 
     def user_payments
         @payments = Payment.get_user_payments(current_user.id)
     end
 
-
+    #Creates a payment record
     def process_payment
         @reservation = Reservation.find(params[:id])
         @payment = Payment.new
     end
 
+    #Updates the state of payment to "removed"
     def remove_payment
         @payment = Payment.find(params[:id])
         @payment.update!(state: 2)
