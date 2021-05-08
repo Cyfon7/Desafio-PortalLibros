@@ -1,4 +1,4 @@
-/*function build_modalMakeReserve(){
+function build_modalMakeReserve(){
   var modal = new DOMParser().parseFromString(`<div class="modal fade" id="modalMakeReserve" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -22,17 +22,7 @@
 document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('rowButtons').addEventListener('click', function (event) {
     if (event.target.dataset.target == "#modalMakeReserve"){
-
-      $.ajax({
-        url: '<%= make_reservation_path %>',
-        type: 'POST',
-        dataType: 'script',
-        data: {}
-      })
-
       build_modalMakeReserve();
-      
     }
   })
 })
-*/

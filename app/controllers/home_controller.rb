@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:index, :show]
 
     #Retrieves all the books availables
     def index
-        @books = Book.where.not(id: Reservation.get_reserved_books)
+        @books = Book.get_avaible_books
     end
 
     def show
@@ -17,7 +17,6 @@ class HomeController < ApplicationController
 
     #Make a Reservation action
     def make_reservation
-        byebug
         @reservation = Reservation.new
     end
 

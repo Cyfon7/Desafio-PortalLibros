@@ -1,8 +1,6 @@
 <div class="row" id="rowButtons">
     <div class="col">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMakeReserve">
-            Reserve Book
-        </button>
+        <%= button_to "Reserve Book", make_reservation_path, remote: true, class:"btn btn-primary", "data-toggle" => "modal", "data-target" => "#modalMakeReserve"%>
     </div>
 </div>
 
@@ -26,7 +24,7 @@
         <%= render partial: "home/book", collection: @books %>
     </tbody>
 </table>
-
+<!--
 <script>
 function build_modalMakeReserve(){
   var modal = new DOMParser().parseFromString(`<div class="modal fade" id="modalMakeReserve" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -70,3 +68,4 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 </script>
+-->
