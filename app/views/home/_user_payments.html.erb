@@ -1,0 +1,7 @@
+<tr id="payment-<%= payment.id %>">
+    <td><%= payment.reservation_id %></td>
+    <td><%= payment.state %></td>
+    <td><%= payment.total %></td>
+    <td><%= link_to 'Show', payment, remote: true %></td>
+    <td><%= link_to 'Erase', remove_payment_path(id: payment.id), data: { confirm: "Processed payments will not be refunded\nDo you want to continue?", remote: true }%></td>
+</tr>

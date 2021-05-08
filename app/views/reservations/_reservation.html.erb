@@ -5,5 +5,5 @@
     <td><%= reservation.price %></td>
     <td><%= link_to 'Show', reservation, remote: true %></td>
     <td><%= link_to 'Edit', edit_reservation_path(reservation), remote: true %></td>
-    <td><%= link_to 'Remove', reservation, data: { remote: true, confirm: "Are you sure?" }, method: :delete %></td>
+    <td><%= link_to 'Destroy', reservation, data: { remote: true, confirm: "Are you sure?" }, method: :delete %></td>
 </tr>

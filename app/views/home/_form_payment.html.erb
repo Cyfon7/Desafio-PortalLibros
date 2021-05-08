@@ -1,0 +1,24 @@
+<%= form_with do |form| %>
+    <div>
+        <%= form.label "Email" %>
+        <%= form.text_field "Email", value: current_user.email, disabled: true %>
+    </div>
+    <div>
+        <%= form.label "Title" %>
+        <%= form.text_field "Title", value: @reservation.book.title, disabled: true %>
+    </div>
+    <div>
+        <%= form.label "Author" %>
+        <%= form.text_field "Author", value: @reservation.book.author, disabled: true %>
+    </div>
+    <div>
+        <%= form.label "Price" %>
+        <%= form.text_field "Price", value: @reservation.price, disabled: true %>
+    </div>
+<% end %>
+
+<%= form_with model: payment, remote: true do |form| %>
+    <%= form.hidden_field :reservation_id, value: @reservation.id %>
+    <%= form.hidden_field :state, value: :processed %>
+    <%= form.submit "Buy", data: { disable_with: "Processing..."}, class: "btn btn-primary" %>
+<% end %>

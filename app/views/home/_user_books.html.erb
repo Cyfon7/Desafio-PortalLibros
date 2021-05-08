@@ -5,6 +5,6 @@
     <td><%= reservation.quantity %></td>
     <td><%= reservation.price %></td>
     <td><%= link_to 'Show', reservation.book, remote: true %></td>
-    <td><%= link_to 'Buy', remote: true %></td>
+    <td><%= link_to 'Buy', process_payment_path(id: reservation.id), data: {toggle: "modal", target: "#modalPayment"}, remote: true %></td>
     <td><%= link_to 'Remove', remove_reservation_path(id: reservation.id), remote: true, method: :delete %></td>
 </tr>
