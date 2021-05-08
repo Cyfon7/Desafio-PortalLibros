@@ -1,34 +1,4 @@
-<div class="row" id="rowButtons">
-    <div class="col">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMakeReserve">
-            Reserve Book
-        </button>
-    </div>
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>SKU</th>
-            <th>Stock</th>
-            <th>Price</th>        
-        <% if user_signed_in? %>
-            <th colspan="3"></th>
-        <% else %>
-            <th colspan="2"></th>
-        <% end %>
-        </tr>
-    </thead>
-
-    <tbody id="leUserBooks">
-        <%= render partial: "home/book", collection: @books %>
-    </tbody>
-</table>
-
-<script>
-function build_modalMakeReserve(){
+/*function build_modalMakeReserve(){
   var modal = new DOMParser().parseFromString(`<div class="modal fade" id="modalMakeReserve" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -47,18 +17,15 @@ function build_modalMakeReserve(){
       </div>
     </div>`, 'text/html');
   document.querySelector('body').prepend(modal.body.firstChild);
-  /*document.getElementById('myForm').append("<%= j render(:partial =>'home/form', :locals => { :reservation => @reservation } ) %>");*/
-  $('#myForm').html("<%= j render(:partial =>'home/form', :locals => { :reservation => @reservation } ) %>");
-  
 };
 
 document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('rowButtons').addEventListener('click', function (event) {
     if (event.target.dataset.target == "#modalMakeReserve"){
-        console.log(event.target.dataset.target)
+
       $.ajax({
         url: '<%= make_reservation_path %>',
-        type: 'GET',
+        type: 'POST',
         dataType: 'script',
         data: {}
       })
@@ -68,5 +35,4 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   })
 })
-
-</script>
+*/

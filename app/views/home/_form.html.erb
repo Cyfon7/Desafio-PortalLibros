@@ -1,0 +1,5 @@
+<%= form_with model: reservation, remote: true do |form| %>
+  <%= form.select :book_id, Book.all.collect { |book| [book.title, book.id] }, prompt: "Choose Book..." %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit "Reserve", data: { disable_with: "Making reservation..."}, class: "btn btn-primary" %>
+<% end %>

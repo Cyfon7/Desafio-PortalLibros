@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require jquery/dist/jquery
 //= require_tree .
+
+function removeAllChildNodes(parent){
+	while (parent.firstChild) {
+		parent.removeChild(parent.firstChild);
+	}
+};
