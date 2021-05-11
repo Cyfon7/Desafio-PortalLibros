@@ -3,6 +3,7 @@
     <td><%= reservation.book_id %></td>
     <td><%= reservation.quantity %></td>
     <td><%= reservation.price %></td>
+    <td><%= reservation.paid %></td>
     <td><%= link_to 'Show', reservation, remote: true %></td>
     <td><%= link_to 'Edit', edit_reservation_path(reservation), remote: true %></td>
     <td><%= link_to 'Destroy', reservation, data: { remote: true, confirm: "Are you sure?" }, method: :delete %></td>

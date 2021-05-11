@@ -1,0 +1,9 @@
+book_form = document.getElementById('bookForm')
+book_new = document.getElementById('btnNewBook')
+
+book_form.hidden = true
+book_new.hidden = true
+
+book_form.innerHTML = "<%= escape_javascript(render partial: 'books/form', locals: { book: @book } ) %>"
+
+book_form.hidden = false

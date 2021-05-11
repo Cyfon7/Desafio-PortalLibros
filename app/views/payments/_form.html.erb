@@ -1,0 +1,21 @@
+<%= form_with model: payment, remote: true do |form| %>
+  <div class="field">
+    <%= form.label :reservation_id %>
+    <%= form.collection_select :reservation_id, Reservation.order(:id), :id, :id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.select :state, Payment.states.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.number_field :total, step: 0.1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit data: {disable: "Loading..."} %>
+  </div>
+
+<% end %>

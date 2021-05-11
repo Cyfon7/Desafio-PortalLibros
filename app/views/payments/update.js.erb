@@ -1,7 +1,8 @@
 payment_form = document.getElementById('paymentForm')
 payment_new = document.getElementById('btnNewPayment')
+payment_update = document.getElementById('payment-<%=@payment.id%>')
 
 payment_form.hidden = true
 payment_new.hidden = false
 
-document.getElementById('lePayment').insertAdjacentHTML("beforeend","<%= escape_javascript render @payment %>")
+payment_update.innerHTML = "<%= escape_javascript render @payment %>"

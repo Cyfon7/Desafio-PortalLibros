@@ -1,7 +1,8 @@
 reservation_form = document.getElementById('reservationForm')
 reservation_new = document.getElementById('btnNewReservation')
+reservation_update = document.getElementById('reservation-<%=@reservation.id%>')
 
 reservation_form.hidden = true
 reservation_new.hidden = false
 
-document.getElementById('leReservate').insertAdjacentHTML("beforeend","<%= escape_javascript render @reservation %>")
+reservation_update.innerHTML = "<%= escape_javascript render @reservation %>"

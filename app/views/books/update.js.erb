@@ -1,7 +1,8 @@
 book_form = document.getElementById('bookForm')
 book_new = document.getElementById('btnNewBook')
+book_update = document.getElementById('book-<%=@book.id%>')
 
 book_form.hidden = true
 book_new.hidden = false
 
-document.getElementById('leBooks').insertAdjacentHTML("beforeend","<%= escape_javascript render @book %>")
+book_update.innerHTML = "<%= escape_javascript render @book %>"

@@ -1,0 +1,31 @@
+<%= form_with model: reservation, remote: true do |form| %>
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_id %>
+    <%= form.collection_select :book_id, Book.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paid %>
+    <%= form.check_box :paid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit data: {disable: "Loading..."} %>
+  </div>
+
+<% end %>

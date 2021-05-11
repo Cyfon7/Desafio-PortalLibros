@@ -1,0 +1,9 @@
+payment_form = document.getElementById('paymentForm')
+payment_new = document.getElementById('btnNewPayment')
+
+payment_form.hidden = true
+payment_new.hidden = true
+
+payment_form.innerHTML = "<%= escape_javascript(render partial: 'payments/form', locals: { payment: @payment } ) %>"
+
+payment_form.hidden = false

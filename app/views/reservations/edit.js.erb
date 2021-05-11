@@ -1,0 +1,9 @@
+reservation_form = document.getElementById('reservationForm')
+reservation_new = document.getElementById('btnNewReservation')
+
+reservation_form.hidden = true
+reservation_new.hidden = true
+
+reservation_form.innerHTML = "<%= escape_javascript(render partial: 'reservations/form', locals: { reservation: @reservation } ) %>"
+
+reservation_form.hidden = false
