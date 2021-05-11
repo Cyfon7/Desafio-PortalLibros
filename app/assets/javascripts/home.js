@@ -31,7 +31,7 @@ function build_modalPayment(){
           </div>
           <div class="modal-body">
             <div class="field">
-              <span id="message">Form will lock in </span>
+              <span id="message">Form will close in </span>
               <span id="minutes"></span>:<span id="seconds"></span>
             </div>
             <div id="myPayment">
@@ -90,7 +90,7 @@ document.addEventListener('turbolinks:load', function(){
       if ( event.target.dataset.target == "#modalPayment" ){
         $('#modalPayment').modal('show');
       
-        const timeout = 120000;
+        let timeout = 120000;
         displayTimer(timeout);
 
         setTimeout(function (){
@@ -99,9 +99,9 @@ document.addEventListener('turbolinks:load', function(){
 
         document.getElementById('modalPayment').addEventListener('click', function(event){
           if( event.target.id == "btnBuy" ){
-            setTimeout(function(){
-              $('#modalPayment').modal('hide');
-            }, 400);
+            
+              $('#modalPayment').delay(400).modal('hide'); 
+                        
           }
         })
       }
@@ -109,3 +109,4 @@ document.addEventListener('turbolinks:load', function(){
   })
 
 })
+

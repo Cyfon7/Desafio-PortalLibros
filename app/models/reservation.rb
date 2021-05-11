@@ -5,7 +5,7 @@ class Reservation < ApplicationRecord
 
   validates :user_id, :book_id, :price, presence: true
 
-  scope :get_reservations, -> (user_id) { where("user_id = ?", user_id) }
+  scope :get_reservations, -> (user_id) { where("user_id = ? AND paid = ?", user_id, false) }
   scope :get_reserved_books, -> { all.pluck(:book_id) }
   scope :get_book_by_id, -> (id) { find(id).book.title }
 end

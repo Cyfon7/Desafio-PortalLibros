@@ -1,5 +1,5 @@
 class Payment < ApplicationRecord
-  belongs_to :reservation
+  belongs_to :reservation, optional: true
   validates :reservation_id, :state, :total, presence: true
 
   enum state: [:not_processed, :processed, :removed]

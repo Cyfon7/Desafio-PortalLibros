@@ -53,6 +53,8 @@ class HomeController < ApplicationController
       total: params[:total]
     )
     @payment.save!
+    @reservation = Reservation.find(params[:reservation_id])
+    @reservation.update!(paid: true)
   end
 
   #Updates the state of payment to "removed"
