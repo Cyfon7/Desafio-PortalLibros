@@ -1,10 +1,14 @@
 book_table = document.getElementById('leUserBooks');
-while (book_table.firstChild) {
-    book_table.removeChild(book_table.firstChild);
-}
+removeAllChildNodes(book_table);
+
+document.getElementById('th1').textContent = "Book";
+document.getElementById('th2').textContent = "State";
+document.getElementById('th3').textContent = "Date";
+document.getElementById('th4').textContent = "Total";
 
 <% unless @payments.nil? %>
     <% @payments.each do |payment| %>
         book_table.insertAdjacentHTML("beforeend","<%= escape_javascript render "home/user_payments", payment: payment %>")
     <% end %>
+    console.log("Showing user payments")
 <% end %>

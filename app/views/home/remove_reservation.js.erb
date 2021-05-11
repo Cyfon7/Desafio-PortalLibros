@@ -1,3 +1,5 @@
 var target_tr = document.getElementById('reservation-<%=@reservation.id%>'),
 tbody_parent = document.getElementById('leUserBooks')
 tbody_parent.removeChild(target_tr)
+
+console.log("Removing selected reservation from the list")

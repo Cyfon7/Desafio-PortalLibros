@@ -17,8 +17,9 @@
     </div>
 <% end %>
 
-<%= form_with model: payment, remote: true do |form| %>
+<%= form_with url: "/payment_completed", remote: true do |form| %>
     <%= form.hidden_field :reservation_id, value: @reservation.id %>
     <%= form.hidden_field :state, value: :processed %>
-    <%= form.submit "Buy", data: { disable_with: "Processing..."}, class: "btn btn-primary" %>
+    <%= form.hidden_field :total, value: @reservation.price %>
+    <%= form.submit "Buy", data: { disable_with: "Processing..."}, class: "btn btn-primary", id: "btnBuy" %>
 <% end %>

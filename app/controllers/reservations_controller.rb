@@ -18,15 +18,11 @@ class ReservationsController < ApplicationController
     
   def create
     @reservation = Reservation.new(reservation_params)
-    if @reservation.save!
-    else
-    end
+    @reservation.save!
   end
     
   def update
-    if @reservation.update!(reservation_params)
-    else
-    end
+    @reservation.update!(reservation_params)
   end
     
   def destroy

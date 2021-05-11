@@ -18,15 +18,11 @@ class PaymentsController < ApplicationController
       
     def create
       @payment = Payment.new(payment_params)
-      if @payment.save!
-      else
-      end
+      @payment.save!
     end
       
     def update
-      if @payment.update!(payment_params)
-      else
-      end
+      @payment.update!(payment_params)
     end
       
     def destroy
@@ -39,7 +35,7 @@ class PaymentsController < ApplicationController
       end
       
       def payment_params
-        params.require(:payment).permit(:reservation_id, :state)
+        params.require(:payment).permit(:reservation_id, :state, :total)
       end
   end
       

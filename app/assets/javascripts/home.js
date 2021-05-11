@@ -66,31 +66,46 @@ function displayTimer(miliseconds){
   }
 };
 
-
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('turbolinks:load', function(){
+  build_modalMakeReserve();
+  build_modalPayment();
 
   document.getElementById('rowButtons').addEventListener('click', function (event) {
-    if (event.target.dataset.target == "#modalMakeReserve"){
-      build_modalMakeReserve();
+    if ( event.target.dataset.target == "#modalMakeReserve" ){
+      $('#modalMakeReserve').modal('show');
+
+      document.getElementById('modalMakeReserve').addEventListener('click', function(event){
+        if( event.target.id == "btnReserve" ){
+          setTimeout(function(){
+            $('#modalMakeReserve').modal('hide');
+          }, 400);
+        }
+      })
     }
   })
 
   document.getElementById('leUserBooks').addEventListener('click', function (event) {
     let patern = /(reservation-\d)/g;
     if ( patern.test(event.target.parentNode.parentNode.id) ){
-      build_modalPayment();
-      $('#modalPayment').modal('show');
-      const timeout = 20000;
-      displayTimer(timeout);
+      if ( event.target.dataset.target == "#modalPayment" ){
+        $('#modalPayment').modal('show');
+      
+        const timeout = 120000;
+        displayTimer(timeout);
 
-      setTimeout(function (){
-        $('#modalPayment').modal('hide');
-      }, timeout);
+        setTimeout(function (){
+          $('#modalPayment').modal('hide');
+        }, timeout);
 
+        document.getElementById('modalPayment').addEventListener('click', function(event){
+          if( event.target.id == "btnBuy" ){
+            setTimeout(function(){
+              $('#modalPayment').modal('hide');
+            }, 400);
+          }
+        })
+      }
     }
   })
 
 })
-
-
-

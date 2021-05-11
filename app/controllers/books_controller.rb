@@ -18,15 +18,11 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if @book.save!
-    else
-    end
+    @book.save!
   end
 
   def update
-    if @book.update!(book_params)
-    else
-    end
+    @book.update!(book_params)
   end
 
   def destroy

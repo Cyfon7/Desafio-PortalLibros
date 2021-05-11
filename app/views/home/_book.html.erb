@@ -1,11 +1,10 @@
 <tr id="book-<%= book.id %>">
-    <td><%= book.title %></td>
-    <td><%= book.author %></td>
-    <td><%= book.sku %></td>
-    <td><%= book.stock %></td>
-    <td><%= book.price %></td>
-    <td><%= link_to 'Show', book, remote: true %></td>
-    <% if user_signed_in? %>
-        <td><%= link_to 'Reserve', reserved_path(book_id: book.id, price: book.price), method: :post, remote: true %></td>
-    <% end %>
+  <td><%= book.title %></td>
+  <td><%= book.author %></td>
+  <td><%= book.sku %></td>
+  <td><%= book.price %></td>
+  <td><%= link_to 'Show', book, remote: true %></td>
+  <% if user_signed_in? %>
+    <td><%= link_to 'Reserve', reserved_path(book_id: book.id, price: book.price), method: :post, remote: true %></td>
+  <% end %>
 </tr>
